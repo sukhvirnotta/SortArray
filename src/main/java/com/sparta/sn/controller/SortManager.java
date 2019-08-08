@@ -15,8 +15,8 @@ public class SortManager {
         int[] unsortedArray = {6, 3, 7, 9, 2, 1, 10, 7};
         Sorter sorter = SortFactory.getInstance();
         int[] sortedArray = sorter.sortArray(unsortedArray);
-        new DisplayManager().displayArray(sortedArray);
         new DisplayManager().displaySorterType(sorter.toString());
+        new DisplayManager().displayArray(sortedArray);
     }
 
     public static void initialiseLogging() {
