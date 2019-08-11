@@ -20,7 +20,7 @@ public class BubbleSorter implements Sorter {
                     unsortedArray[i] = unsortedArray[i + 1];
                     unsortedArray[i + 1] = temp;
                     swapped = true;
-                    log.debug("Swapped elements " + unsortedArray[i] + " and " + unsortedArray[i+1]);
+                    log.debug("Swapped elements " + unsortedArray[i] + " and " + unsortedArray[i + 1]);
                     log.debug("Array after swap: " + Arrays.toString(unsortedArray));
                 }
             }
@@ -31,5 +31,7 @@ public class BubbleSorter implements Sorter {
     }
 
     @Override
-    public String toString() { return "Bubble Sorter"; }
+    public String toString() {
+        return "Bubble Sorter";
+    }
 }

@@ -1,37 +1,52 @@
 package com.sparta.sn.sorters;
 
+import org.apache.log4j.Logger;
+
+import java.util.Arrays;
+import java.util.Random;
+
 public class QuickSorter implements Sorter {
+
+    private static Logger log = Logger.getLogger(QuickSorter.class.getName());
+
     public int[] sortArray(int[] unsortedArray) {
-        quickSortArray(unsortedArray, 0, unsortedArray.length-1);
-        return  unsortedArray;
+        log.debug("Unsorted array: " + Arrays.toString(unsortedArray));
+        quickSortArray(unsortedArray, 0, unsortedArray.length);
+        log.debug("Sorted array: " + Arrays.toString(unsortedArray));
+        return unsortedArray;
     }
 
-    private  void quickSortArray(int[] unsortedArray, int left, int right) {
-        if (left < right) {
-            int pivotIndex = partition(unsortedArray, left, right);
-            quickSortArray(unsortedArray, left, pivotIndex - 1);
-            quickSortArray(unsortedArray, pivotIndex, right);
-        }
-    }
-
-    private int partition(int[] unsortedArray, int left, int right) {
-        int pivotValue = unsortedArray[right];
-        int i = left - 1;
-        for (int j = left; j < right; ++j) {
-            if (unsortedArray[j] <= pivotValue) {
-                swap(unsortedArray, ++i, j);
+    private void quickSortArray(int[] unsortedArray, int left, int right) {
+        int l = left;
+        int r = right - 1;
+        int size = right - left;
+        if (size > 1) {
+            Random random = new Random();
+            int pivot = unsortedArray[random.nextInt(size) + l];
+            log.debug("Random pivot element: " + pivot);
+            while (l < r) {
+                while (unsortedArray[r] > pivot && r > l) {
+                    r--;
+                }
+                while (unsortedArray[l] < pivot && l <= r) {
+                    l++;
+                }
+                if (l < r) {
+                    int temp = unsortedArray[l];
+                    unsortedArray[l] = unsortedArray[r];
+                    unsortedArray[r] = temp;
+                    log.debug("Swapped elements " + unsortedArray[l] + " and " + unsortedArray[r]);
+                    log.debug("Array after swap: " + Arrays.toString(unsortedArray));
+                    l++;
+                }
             }
+            quickSortArray(unsortedArray, left, l);
+            quickSortArray(unsortedArray, r, right);
         }
-        swap(unsortedArray, ++i, right);
-        return i;
-    }
-
-    private void swap(int[] unsortedArray, int index1, int index2) {
-        int temp = unsortedArray[index1];
-        unsortedArray[index1] = unsortedArray[index2];
-        unsortedArray[index2] = temp;
     }
 
     @Override
-    public String toString() { return "Quick Sorter"; }
+    public String toString() {
+        return "Quick Sorter";
+    }
 }

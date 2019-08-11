@@ -15,12 +15,12 @@ public class MergeSorter implements Sorter {
         return unsortedArray;
     }
 
-    public void mergeSortArray(int[] unsortedArray)  {
+    private void mergeSortArray(int[] unsortedArray) {
         int length = unsortedArray.length;
         if (length < 2) {
             return;
         }
-        int middle = length/2;
+        int middle = length / 2;
         int[] left = Arrays.copyOfRange(unsortedArray, 0, middle);
         int[] right = Arrays.copyOfRange(unsortedArray, middle, length);
 
@@ -61,5 +61,7 @@ public class MergeSorter implements Sorter {
     }
 
     @Override
-    public String toString() { return "Merge Sorter"; }
+    public String toString() {
+        return "Merge Sorter";
+    }
 }
