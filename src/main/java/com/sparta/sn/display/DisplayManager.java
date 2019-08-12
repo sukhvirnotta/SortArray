@@ -10,13 +10,13 @@ public class DisplayManager {
     public String displaySortTypeRequest(String path) {
         System.out.println("Enter the number of the sorter you would like to use");
         String[] sortNames = getMenuItems(path);
-        String sortType = scanner.nextLine();
-        return sortNames[Integer.parseInt(sortType) - 1];
+        int sortType = scanner.nextInt();
+        return sortNames[sortType - 1];
     }
 
-    public String displayArraySizeRequest() {
+    public int displayArraySizeRequest() {
         System.out.println("Please enter the size of array");
-        return scanner.nextLine();
+        return scanner.nextInt();
     }
 
     public void displayUnsortedArray(String sorterName, int[] unsortedArray) {

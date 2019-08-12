@@ -8,7 +8,8 @@ public class BubbleSorter implements Sorter {
 
     private static Logger log = Logger.getLogger(BubbleSorter.class.getName());
 
-    public int[] sortArray(int[] unsortedArray) {
+    public int[] sortArray(int[] arrayToSort) {
+        int[] unsortedArray = arrayToSort.clone();
         log.debug("Unsorted array: " + Arrays.toString(unsortedArray));
         int length = unsortedArray.length;
         boolean swapped = true;

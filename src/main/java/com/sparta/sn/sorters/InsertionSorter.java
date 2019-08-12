@@ -8,7 +8,8 @@ public class InsertionSorter implements Sorter {
 
     private static Logger log = Logger.getLogger(InsertionSorter.class.getName());
 
-    public int[] sortArray(int[] unsortedArray) {
+    public int[] sortArray(int[] arrayToSort) {
+        int[] unsortedArray = arrayToSort.clone();
         log.debug("Unsorted array: " + Arrays.toString(unsortedArray));
         int j;
         for (int i = 1; i < unsortedArray.length; i++) {

@@ -20,9 +20,9 @@ public class SortManager {
         try {
             initialiseLogging();
             String sortType = displayManager.displaySortTypeRequest(sorterLoader.getSortersLocation());
-            String sizeOfArray = displayManager.displayArraySizeRequest();
+            int sizeOfArray = displayManager.displayArraySizeRequest();
 
-            int[] unsortedArray = createArray(Integer.parseInt(sizeOfArray));
+            int[] unsortedArray = createArray(sizeOfArray);
             Sorter sorter = selectSorter(sortType);
             printBeforeSort(sorter.toString(), unsortedArray);
             int[] sortedArray = sorter.sortArray(unsortedArray);

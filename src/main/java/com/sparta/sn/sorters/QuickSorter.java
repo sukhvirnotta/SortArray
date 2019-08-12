@@ -9,7 +9,8 @@ public class QuickSorter implements Sorter {
 
     private static Logger log = Logger.getLogger(QuickSorter.class.getName());
 
-    public int[] sortArray(int[] unsortedArray) {
+    public int[] sortArray(int[] arrayToSort) {
+        int[] unsortedArray = arrayToSort.clone();
         log.debug("Unsorted array: " + Arrays.toString(unsortedArray));
         quickSortArray(unsortedArray, 0, unsortedArray.length);
         log.debug("Sorted array: " + Arrays.toString(unsortedArray));
