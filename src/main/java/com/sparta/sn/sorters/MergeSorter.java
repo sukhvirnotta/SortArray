@@ -8,8 +8,7 @@ public class MergeSorter implements Sorter {
 
     private static Logger log = Logger.getLogger(MergeSorter.class.getName());
 
-    public int[] sortArray(int[] arrayToSort) {
-        int[] unsortedArray = arrayToSort.clone();
+    public int[] sortArray(int[] unsortedArray) {
         log.debug("Unsorted array: " + Arrays.toString(unsortedArray));
         mergeSortArray(unsortedArray);
         log.debug("Sorted array: " + Arrays.toString(unsortedArray));

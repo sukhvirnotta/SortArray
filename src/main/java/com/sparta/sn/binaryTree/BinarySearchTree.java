@@ -99,7 +99,7 @@ public class BinarySearchTree implements BinaryTree {
         }
     }
 
-    private int getLeftChildRecursive(Node currentNode, int element) throws ChildNotFoundException {
+    private int getLeftChildRecursive(Node currentNode, int element) {
         if (currentNode.getValue() == element) {
             log.debug("Left child node found for element: " + element);
             return currentNode.getLeft().getValue();
@@ -117,7 +117,7 @@ public class BinarySearchTree implements BinaryTree {
         }
     }
 
-    private int getRightChildRecursive(Node currentNode, int element) throws ChildNotFoundException {
+    private int getRightChildRecursive(Node currentNode, int element) {
         if (currentNode.getValue() == element) {
             log.debug("Right child node found for element: " + element);
             return currentNode.getRight().getValue();
